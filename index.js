@@ -44,7 +44,7 @@ const waitTemp = async () => {
 
 // 03 - Ménage
 
-const lessive = () =>{
+const doLaundry = () =>{
     console.log("je commence la lessive");
     return new Promise((resolve,reject) =>{
         setTimeout(()=>{
@@ -53,7 +53,7 @@ const lessive = () =>{
     })
 }
 
-const vaisselle = () =>{
+const doDishes = () =>{
     console.log("je commence la vaisselle");
     return new Promise((resolve,reject) =>{
         setTimeout(()=>{
@@ -62,12 +62,13 @@ const vaisselle = () =>{
     })
 }
 
-const menage = async() =>{
+const clean = async() =>{
 
-    const endLessive = await lessive()
-    console.log(endLessive);
-    const endVaisselle= await vaisselle()
-    console.log(endVaisselle);
+    const endLaundry = await doLaundry()
+    console.log(endLaundry);
+    const endDishes= await doDishes()
+    console.log(endDishes);
+    console.log("J'ai terminé le ménage");
 }
 
-menage ()
+clean ()
