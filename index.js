@@ -1,5 +1,5 @@
 
-// 01-hello world
+// 01 - hello world
 
 const hello = () =>{
     return new Promise((resolve,reject) =>{
@@ -16,7 +16,7 @@ const waitHello = async () => {
   
   waitHello()
 
-// 02- il fait froid
+// 02 - il fait froid
 
 const meteo = () =>{
     const temperature = 2
@@ -41,3 +41,33 @@ const waitTemp = async () => {
     }
 
   waitTemp()
+
+// 03 - Ménage
+
+const lessive = () =>{
+    console.log("je commence la lessive");
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+        resolve("j'ai fini la lessive")
+        },3000)
+    })
+}
+
+const vaisselle = () =>{
+    console.log("je commence la vaisselle");
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>{
+        resolve("j'ai fini la vaisselle")
+        },1500)
+    })
+}
+
+const menage = async() =>{
+
+    const endLessive = await lessive()
+    console.log(endLessive);
+    const endVaisselle= await vaisselle()
+    console.log(endVaisselle);
+}
+
+menage ()
